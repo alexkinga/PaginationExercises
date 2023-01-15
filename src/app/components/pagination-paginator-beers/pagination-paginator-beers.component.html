@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-title>Products</mat-card-title>
+  <mat-card-content>
+    <mat-paginator *ngIf="queryParams$ | async as queryParams"
+                   [length]="queryParams.length"
+                   [pageSize]="queryParams.perPage"
+                   [pageSizeOptions]="queryParams.pageOptions"
+                   [pageIndex]="queryParams.pageNumber - 1"
+                   (page)="onChange($event)"
+                   aria-label="Select page">>
+
+    </mat-paginator>
+    <mat-chip-list aria-label="Fish selection">
+      <mat-chip *ngFor="let item of beerList$ | async">
+        {{ item.name }}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+</mat-card>

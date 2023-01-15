@@ -4,7 +4,6 @@ import {Observable, switchMap} from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BeersModel } from '../../models/beers.model';
 import { BeersService } from '../../services/beers.service';
-import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-pagination-paginator-beers',

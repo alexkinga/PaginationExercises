@@ -8,6 +8,7 @@ import {SingleProductLimitComponent} from './components/single-product-limit/sin
 import {
   PaginationPaginatorBeersComponent
 } from './components/pagination-paginator-beers/pagination-paginator-beers.component';
+import {SimpleBeersComponent} from './components/simple-beers/simple-beers.component';
 import {FilterMultiCarsComponentModule} from './components/filter-multi-cars/filter-multi-cars.component-module';
 import {CarServiceModule} from './services/car.service-module';
 import {
@@ -26,6 +27,7 @@ import {
   PaginationPaginatorBeersComponentModule
 } from './components/pagination-paginator-beers/pagination-paginator-beers.component-module';
 import {BeersServiceModule} from './services/beers.service-module';
+import {SimpleBeersComponentModule} from './components/simple-beers/simple-beers.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([{
@@ -40,7 +42,10 @@ import {BeersServiceModule} from './services/beers.service-module';
   }, {path: 'products-limit', component: SingleProductLimitComponent}, {
     path: 'pagination-beers',
     component: PaginationPaginatorBeersComponent
-  }]), FilterMultiCarsComponentModule, CarServiceModule, FilterSingleProductComponentModule, ProductServiceModule, RouteSortProductComponentModule, SearchRouteMultiJobsComponentModule, JobPostServiceModule, SingleProductLimitComponentModule, PaginationPaginatorBeersComponentModule, BeersServiceModule],
+  }, {
+    path: 'simple-beers',
+    component: SimpleBeersComponent
+  }]), FilterMultiCarsComponentModule, CarServiceModule, FilterSingleProductComponentModule, ProductServiceModule, RouteSortProductComponentModule, SearchRouteMultiJobsComponentModule, JobPostServiceModule, SingleProductLimitComponentModule, PaginationPaginatorBeersComponentModule, BeersServiceModule, SimpleBeersComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

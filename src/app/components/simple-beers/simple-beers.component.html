@@ -1,0 +1,14 @@
+<mat-card *ngIf="paginationState$ |async as limit">
+  <mat-card-title></mat-card-title>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of beersList$ | async">{{item.name}}</mat-list-item>
+    </mat-list>
+    <button mat-raised-button mat-mini-fab color="accent" (click)="onPrevClick()" [disabled]="limit.isFirst">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button mat-raised-button mat-mini-fab color="accent" (click)="onNextClick()" [disabled]="limit.isLast">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,29 @@
+<mat-card *ngIf="queryParams$ | async as param">
+  <mat-card-title>Custom pagination with beers</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="pageForm">
+      <div>
+        <mat-button-toggle-group formControlName="limit" (change)="onChangeLimit(pageForm.value['limit'])">
+          <mat-button-toggle *ngFor="let item of limit$ | async" [value]="item" [checked]="item === param.perPage">
+            {{ item }}
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div>
+        <mat-label>Choose an option</mat-label>
+        <div>
+          <mat-radio-group formControlName="page" (change)="onChangePage(pageForm.value)">
+            <mat-radio-button *ngFor="let item of pageOptions$ | async" [value]="item" [checked]="item === param.pageNumber">
+              {{ item }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </form>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of beersList$ | async">
+        {{ item.name }}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

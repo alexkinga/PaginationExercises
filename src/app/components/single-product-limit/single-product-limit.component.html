@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-title>Limit</mat-card-title>
+  <mat-card-content style="display: flex; flex-flow: column nowrap; align-items: flex-start">
+    <mat-button-toggle-group [formControl]="limit" (change)="onChangeLimit(limit.value)">
+      <mat-button-toggle *ngFor="let item of limit$ | async" [value]="item">
+        {{ item }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let item of limit$ | async" (click)="setLimit(item)" [disabled]="limit.value === item">
+        {{ item }}
+      </button>
+    </mat-menu>
+
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-title>Products list</mat-card-title>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of productsList$ | async">
+        {{ item.title }}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -22,4 +22,7 @@ export class ProductService {
   getOneCategory(category: string): Observable<ProductModel[]> {
     return this._httpClient.get<ProductModel[]>(`https://fakestoreapi.com/products/category/${category}`);
   }
+  getLimitedProducts(limit: number): Observable<ProductModel[]> {
+    return this._httpClient.get<ProductModel[]>(`https://fakestoreapi.com/products?limit=${limit}`);
+  }
 }
